@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-01T07:02:54.000Z</updated>
+  <updated>2017-11-01T06:33:33.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,56 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>我在小程序踩过的坑</title>
-    <link href="http://yoursite.com/2017/11/01/%E6%88%91%E5%9C%A8%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
-    <id>http://yoursite.com/2017/11/01/我在小程序踩过的坑/</id>
-    <published>2017-11-01T07:02:54.000Z</published>
-    <updated>2017-11-01T07:02:54.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>电商订单体系</title>
-    <link href="http://yoursite.com/2017/11/01/%E7%94%B5%E5%95%86%E8%AE%A2%E5%8D%95%E4%BD%93%E7%B3%BB/"/>
-    <id>http://yoursite.com/2017/11/01/电商订单体系/</id>
-    <published>2017-11-01T06:59:01.000Z</published>
-    <updated>2017-11-01T06:59:01.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>电商账号系统设计</title>
-    <link href="http://yoursite.com/2017/11/01/%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://yoursite.com/2017/11/01/用户账号系统设计/</id>
-    <published>2017-11-01T06:55:57.000Z</published>
-    <updated>2017-11-06T09:49:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>用户账号系统设计</p><blockquote><p>前记：文章编写于2016年12月，主要是针对2016年11月的产品迭代策划方案的一次复盘，记录了我对用户账号系统的探讨和思考。</p></blockquote><p>用户是产品的基础和目的，一切创意，一切功能，皆为其服务。因此，用户账号系统，于产品而言，是一个重要的核心。所以，类似用户账号系统这种基础性的功能系统，在设计层面上，难点和重点都是显而易见的。重点是既要保证他的·<code>功能性</code>，难点即是又要保证其<code>拓展性</code>。</p><a id="more"></a><p>用户账号系统，可能乍眼看上去，说得比较大，通俗一点，就是管理用户账号系统。那如何管理？就是对用户账号的增加、删除、查看、修改。如果再换一个表达方式，那就是“注册、登录、修改信息”。那这样就很清晰的看到，用户账号系统，设计的重点：</p><ol><li><strong>登录</strong></li><li><strong>注册</strong></li><li><strong>修改信息（忘记密码、修改手机、修改个人信息等）</strong></li></ol><p>虽然这些功能，看上去比较简单，实现方式也不难。可是这是面对用户第一道门槛，因此在界面设计和用户体验会抓得比较紧。</p><p>那么，如何理解用户账号系统的拓展性，这里基于业务列出几个例子：</p><ol><li><strong>第三方授权登录</strong></li></ol><p>登录的方式，从早期的<strong>「账号+密码」</strong>，这种方式实现非常简单，可是有一个最大的痛点——容易被遗忘。<br>后来，逐渐演变成<strong>「邮箱+密码」</strong>，<strong>「手机+密码」</strong>，由于邮箱、手机等信息，都是大家经常使用的内容，所以，可以降低遗忘率。可是正常的用户账号需经历两个过程：先注册再登录，略繁琐了。<br>为了可快速登录，跳过注册流程，也产生<strong>「手机+验证码」</strong>这样的登录方式。<br>同时社交产品发达，微信、微博、QQ等社交产品都有相关的SDK，可协助一键登录。这样<strong>「第三方授权」</strong>登录方式也诞生了。</p><p>第三登录是登录方式演变和拓展，用户账号系统要满足此拓展。</p><ol><li><strong>同平台多账号绑定和解绑</strong></li></ol><p>第三方授权登录，虽然可以实现快速登录的目的，可是，第三方仅仅对外开放OpenID，用户的详细信息还是存留在第三方中，产品只能得知第三方公开的信息。但是产品都是需要自建用户体系，因此现在平台的账号体系和第三方授权的方式都是并存的。</p><p>正因为两者是并存的，所以，同平台就会出现多账号情况，用户通过手机/邮箱创建一个账号，然后又通过第三方授权创建了其他账号，绑定需将其全部捆绑在一次，可协助用户管理多个账号。而解绑，则是其的逆反应。</p><ol><li><strong>不同平台的账号打通</strong></li></ol><p>现在每家公司都不会只有一款产品，而是会以某个成功产品为核心，延伸更多其他类型的产品。因此，每个产品都会有其对应的用户体系，但是用户账号系统，基本都是唯一的，它需要满足不同的产品。</p><p>所以，接下来，需要总结如何处理以上重点和难点。</p><h2 id="重点一：登录"><a href="#重点一：登录" class="headerlink" title="重点一：登录"></a>重点一：登录</h2><h4 id="1-登录方式的介绍"><a href="#1-登录方式的介绍" class="headerlink" title="1.登录方式的介绍"></a>1.登录方式的介绍</h4><table><thead><tr><th style="text-align:left">方式</th><th style="text-align:center">账号+密码</th><th style="text-align:center">邮箱\手机+密码</th><th style="text-align:center">手机+验证码</th><th>第三方授权</th></tr></thead><tbody><tr><td style="text-align:left">优点</td><td style="text-align:center">实现简单，留存用户信息</td><td style="text-align:center">易记忆,方便使用,留存用户信息</td><td style="text-align:center">易记忆,简化注册登录流程，可快速进入产品完成大部分功能</td><td>易记忆,简化注册登录流程</td></tr><tr><td style="text-align:left">缺点</td><td style="text-align:center">用户容易忘记</td><td style="text-align:center">注册登录流程较繁琐</td><td style="text-align:center">较依赖验证码，出现验证码收不到情况较难控制</td><td>用户资料仍存在第三方，没有共享</td></tr><tr><td style="text-align:left">例子</td><td style="text-align:center">CSDN(论坛类产品）</td><td style="text-align:center">淘宝、京东、LOFTER、网易严选、豆瓣、微信、约约</td><td style="text-align:center">美团、唯品会、轻芒、今日头条、知乎</td><td>几乎所有产品都支持第三方登录</td></tr></tbody></table><h4 id="2-相关的前端界面设计"><a href="#2-相关的前端界面设计" class="headerlink" title="2.相关的前端界面设计"></a>2.相关的前端界面设计</h4><p>#####（1）账号/邮箱/手机 +密码登录为主<br>这是最常见的登录方式，适用于普遍的产品。<br>例1：豆瓣<br><img src="./豆瓣登录.png" alt="Alt text"></p><p>#####（2）手机+验证码登录为主</p><p>手机+验证码的登录，又名免密码登录或者快捷登录。起源于团购类的产品，用户在购买商品，浏览、筛选、放入购物车，填写订单信息，最后一步付款，此时发现自己没有登录，因此，在这里提供快捷登录方式，免去其注册登录繁琐的流程，快速让用户完成订单。<br>而实际上，在运用上，大家都发现，这种方式优势明显，既可以保留用户信息，又可以快速注册登录，提高用户体验。因此现已经是成为登录方式一个很重要支线了。</p><p>例1：轻芒<br><img src="./轻芒.png" alt="Alt text"><img src="./轻芒2.png" alt="Alt text"></p><p><strong>Tips:</strong></p><blockquote><p>1.输入手机号-&gt;输入验证码，中间是有一个过程的</p></blockquote><p>（A）检测手机是否正确，包括是否11位，是否满足不同地区的电话格式等<br>（B）然后告知服务端发送验证码</p><p>这个过程，以往都是同一个页面实现——即“填写手机号+验证码”，同一个页面对熟悉的用户有较大的优势，可是同一个页面出现两个按钮：“发送验证码”和“登录”，会容易让用户混淆，不太清楚流程先后。</p><p>所以，现在很多产品都改善，使用<code>“向导模式”（Wizard）</code>（如例子所示），一页面承载一个功能，一个复杂的任务拆分成几个小任务，逐步引导用户完成。这里有几个好处：</p><ul><li>用户首次使用，可快速学习，通过分解可让用户快速熟悉产品</li><li>将复杂流程分步进行能够提供充分的任务处理时间，避免用户长时间等待</li><li>预先设计的Wizard步骤能够减轻用户记忆负担从而避免出错</li><li>将完成具体工作流的所有操作集中放置可以减少用户的无用导航</li></ul><p>#####（3）验证码登录和密码登录并行</p><p>上文讨论过，验证码登录有其快捷方便又保留用户的优势，而密码登录历史悠久，实现简单。所以也有一部分的产品都同时保留这两种登录方式，兼容新老用户。</p><p>例3：知乎<br><img src="./知乎1.png" alt="Alt text"><img src="./知乎2.png" alt="Alt text"></p><p>#####（4）第三方授权登录为主</p><p>第三方授权登录，于用户而言，是方便至极，无需填写任何信息，只需要授权登录即可。可是于产品而言，第三方登录只公开OpenID，因此很多用户数据，仍然在第三方，不利于后续工作展开，因此，很多产品都会登录后引导用户绑定手机或者其他信息。</p><p>然而，在产品的初期，也可不妨全面植入第三方授权，因为用户系统需时搭建，初期的产品步伐较轻，可将核心放进产品核心功能，使用第三方授权登录方式，一来于用户而言，注册登录成本几乎没有，低门槛让用户快速体验产品；二来可以验证产品的市场接受度。</p><p>例4：Face U<br><img src="./faceu.png" alt="Alt text"></p><h2 id="重点二：注册"><a href="#重点二：注册" class="headerlink" title="重点二：注册"></a>重点二：注册</h2><h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title="难点一：多平台账号打通"></a>难点一：多平台账号打通</h2><h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="难点二：第三方授权登录"></a>难点二：第三方授权登录</h2><h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title="难点三：同平台多账号的绑定和解绑"></a>难点三：同平台多账号的绑定和解绑</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用户账号系统设计&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;前记：文章编写于2016年12月，主要是针对2016年11月的产品迭代策划方案的一次复盘，记录了我对用户账号系统的探讨和思考。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;用户是产品的基础和目的，一切创意，一切功能，皆为其服务。因此，用户账号系统，于产品而言，是一个重要的核心。所以，类似用户账号系统这种基础性的功能系统，在设计层面上，难点和重点都是显而易见的。重点是既要保证他的·&lt;code&gt;功能性&lt;/code&gt;，难点即是又要保证其&lt;code&gt;拓展性&lt;/code&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>产品入门（一）——产品设计流程</title>
