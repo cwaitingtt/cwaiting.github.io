@@ -27,28 +27,44 @@
 <p>现在每家公司都不会只有一款产品，而是会以某个成功产品为核心，延伸更多其他类型的产品。因此，每个产品都会有其对应的用户体系，但是用户账号系统，基本都是唯一的，它需要满足不同的产品。</p>
 <p>所以，接下来，需要总结如何处理以上重点和难点。</p>
 <h2 id="重点一：登录"><a href="#重点一：登录" class="headerlink" title="重点一：登录"></a>重点一：登录</h2><h4 id="1-登录方式的介绍"><a href="#1-登录方式的介绍" class="headerlink" title="1.登录方式的介绍"></a>1.登录方式的介绍</h4><p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/2Cb15Q7OQY0VAXqdji*PR*YWx.1Y2yf0L7vkQhBpeoQ!/r/dPMAAAAAAAAA" alt="登录方式"></p>
-<h4 id="2-相关的前端界面设计"><a href="#2-相关的前端界面设计" class="headerlink" title="2.相关的前端界面设计"></a>2.相关的前端界面设计</h4><p>#####（1）账号/邮箱/手机 +密码登录为主<br>这是最常见的登录方式，适用于普遍的产品。<br>例1：豆瓣<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/E*M78hWi.aT8x1QVlNwpc6wXGEtqZryCd6V2qsg9.nc!/r/dPIAAAAAAAAA" alt="豆瓣登录"></p>
-<p>#####（2）手机+验证码登录为主</p>
+<h4 id="2-相关的前端界面设计"><a href="#2-相关的前端界面设计" class="headerlink" title="2.相关的前端界面设计"></a>2.相关的前端界面设计</h4><p><strong>（1）账号/邮箱/手机 +密码登录为主 </strong></p>
+<p>这是最常见的登录方式，适用于普遍的产品。<br>例1：豆瓣<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/E*M78hWi.aT8x1QVlNwpc6wXGEtqZryCd6V2qsg9.nc!/r/dPIAAAAAAAAA" alt="豆瓣登录"></p>
+<p><strong>（2）手机+验证码登录为主 </strong></p>
 <p>手机+验证码的登录，又名免密码登录或者快捷登录。起源于团购类的产品，用户在购买商品，浏览、筛选、放入购物车，填写订单信息，最后一步付款，此时发现自己没有登录，因此，在这里提供快捷登录方式，免去其注册登录繁琐的流程，快速让用户完成订单。<br>而实际上，在运用上，大家都发现，这种方式优势明显，既可以保留用户信息，又可以快速注册登录，提高用户体验。因此现已经是成为登录方式一个很重要支线了。</p>
 <p>例1：轻芒<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/ZkpwBqVWINosmFVcg2Zagd6EbUVnISXqzW2sgtmRZj4!/r/dFsBAAAAAAAA" alt="Alt text"><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/OBT4RqScOXw6fD6KniTR5D8PVE6Rfr9At8YCguwLTFQ!/r/dPMAAAAAAAAA" alt="Alt text"></p>
-<p><strong>Tips:</strong></p>
+<p><strong> <code>Tips:</code> </strong></p>
 <blockquote>
 <p>1.输入手机号-&gt;输入验证码，中间是有一个过程的</p>
 </blockquote>
 <p>（A）检测手机是否正确，包括是否11位，是否满足不同地区的电话格式等<br>（B）然后告知服务端发送验证码</p>
 <p>这个过程，以往都是同一个页面实现——即“填写手机号+验证码”，同一个页面对熟悉的用户有较大的优势，可是同一个页面出现两个按钮：“发送验证码”和“登录”，会容易让用户混淆，不太清楚流程先后。</p>
-<p>所以，现在很多产品都改善，使用<code>“向导模式”（Wizard）</code>（如例子所示），一页面承载一个功能，一个复杂的任务拆分成几个小任务，逐步引导用户完成。这里有几个好处：</p>
+<p>所以，现在很多产品都改善，使用<code>“向导模式”（Wizard）</code>（如例子所示），一页面承载一个功能，一个复杂的任务拆分成几个小任务，逐步引导用户完成。这里有好处：</p>
 <ul>
-<li>用户首次使用，可快速学习，通过分解可让用户快速熟悉产品</li>
-<li>将复杂流程分步进行能够提供充分的任务处理时间，避免用户长时间等待</li>
-<li>预先设计的Wizard步骤能够减轻用户记忆负担从而避免出错</li>
-<li>将完成具体工作流的所有操作集中放置可以减少用户的无用导航</li>
+<li>A.用户首次使用，通过分解可让用户快速熟悉产品</li>
+<li>B.将复杂流程分步进行能够提供充分的任务处理时间，避免用户长时间等待</li>
 </ul>
-<p>#####（3）验证码登录和密码登录并行</p>
+<p><strong>（3）验证码登录和密码登录并行 </strong></p>
 <p>上文讨论过，验证码登录有其快捷方便又保留用户的优势，而密码登录历史悠久，实现简单。所以也有一部分的产品都同时保留这两种登录方式，兼容新老用户。</p>
 <p>例3：知乎<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/gGFRyQhB4y*udL48yn*vtE2G73bjrY1AVAJAgKvkdeM!/r/dPMAAAAAAAAA" alt="Alt text"><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/7bXs7Sh*75JFHSWYw1sMglPRT.t8udt4nXdjuQcOJpk!/r/dPIAAAAAAAAA" alt="Alt text"></p>
-<p>#####（4）第三方授权登录为主</p>
+<p><strong>（4）第三方授权登录为主 </strong></p>
 <p>第三方授权登录，于用户而言，是方便至极，无需填写任何信息，只需要授权登录即可。可是于产品而言，第三方登录只公开OpenID，因此很多用户数据，仍然在第三方，不利于后续工作展开，因此，很多产品都会登录后引导用户绑定手机或者其他信息。</p>
 <p>然而，在产品的初期，也可不妨全面植入第三方授权，因为用户系统需时搭建，初期的产品步伐较轻，可将核心放进产品核心功能，使用第三方授权登录方式，一来于用户而言，注册登录成本几乎没有，低门槛让用户快速体验产品；二来可以验证产品的市场接受度。</p>
 <p>例4：Face U<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/dbU1L43WRQ0BlwyIgtJhoIgn6KrSVYz*lgG7f5GNlQQ!/r/dPMAAAAAAAAA" alt="Alt text"></p>
-<h2 id="重点二：注册"><a href="#重点二：注册" class="headerlink" title="重点二：注册"></a>重点二：注册</h2><h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title="难点一：多平台账号打通"></a>难点一：多平台账号打通</h2><h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="难点二：第三方授权登录"></a>难点二：第三方授权登录</h2><h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title="难点三：同平台多账号的绑定和解绑"></a>难点三：同平台多账号的绑定和解绑</h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<h2 id="重点二：注册"><a href="#重点二：注册" class="headerlink" title="重点二：注册"></a>重点二：注册</h2><p>注册有三板斧：<strong>用户名（手机/邮箱），验证码，密码</strong>。</p>
+<p>但也有部分产品会增加「填写用户资料」的流程（如头像、性别、生日等等），以期待可以和用户建立关系。</p>
+<p>若增加「填写用户资料」的流程，也要思考：<br>A.步骤是阻断性的还是可跳过？<br>B.内容哪些是必填，哪些是希望填？</p>
+<p>站在用户体验角度，每增加一步功能或者内容，用户需要去思考，也容易出现流失。<br>在用户登录注册的模块里，着重分析一下注册的交互——分布注册</p>
+<blockquote>
+<p>分步注册（Wizard 向导模式）</p>
+</blockquote>
+<p>在交互层面上，注册是一个很成熟的流程，所以很建议使用到“Wizard（向导模式）”。Wizard模式流行已久，微软在安装软件时，大多数软件都是一步一步引导用户如何安装，将安装任务拆分成几个小任务，一个页面承载一个小任务，用户每次只需完成一个，直至全部完成。（上文也有涉及）</p>
+<p>这样做有什么好处：</p>
+<ul>
+<li>通过分解复杂工作流帮助用户更快的掌握内容</li>
+<li>通知用户当前任务进度使其了解整个工作流的概况</li>
+<li>将复杂流程分步进行能够提供充分的任务处理时间，避免用户长时间等待</li>
+<li>国外某公司做过A/Btest，发现分布注册的转化率高于非分布注册</li>
+</ul>
+<p>所以，注册流程，我们也引入这样的思维。拆分注册流程，每一个页面只承担一个作用。</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/kFD1pkSNqFH6smLkpWDRHHowOLQp5vjmTqfv1TkQcLQ!/r/dPIAAAAAAAAA" alt="image"></p>
+<h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title="难点一：多平台账号打通"></a>难点一：多平台账号打通</h2><h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="难点二：第三方授权登录"></a>难点二：第三方授权登录</h2><h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title="难点三：同平台多账号的绑定和解绑"></a>难点三：同平台多账号的绑定和解绑</h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
