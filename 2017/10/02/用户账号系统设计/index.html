@@ -26,6 +26,7 @@
 </blockquote>
 <p>现在每家公司都不会只有一款产品，而是会以某个成功产品为核心，延伸更多其他类型的产品。因此，每个产品都会有其对应的用户体系，但是用户账号系统，基本都是唯一的，它需要满足不同的产品。</p>
 <p>所以，接下来，需要总结如何处理以上重点和难点。</p>
+<p><a href="&#39;重点一：登录&#39;">重点一：登录</a><br><a href="&#39;重点二：注册&#39;">重点二：注册</a><br><a href="&#39;点一：登录&#39;">难点一：</a><br><a href="&#39;点一：登录&#39;">重点一：登录</a><br><a href="&#39;点一：登录&#39;">重点一：登录</a></p>
 <h2 id="重点一：登录"><a href="#重点一：登录" class="headerlink" title="重点一：登录"></a>重点一：登录</h2><h4 id="1-登录方式的介绍"><a href="#1-登录方式的介绍" class="headerlink" title="1.登录方式的介绍"></a>1.登录方式的介绍</h4><p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/2Cb15Q7OQY0VAXqdji*PR*YWx.1Y2yf0L7vkQhBpeoQ!/r/dPMAAAAAAAAA" alt="登录方式"></p>
 <h4 id="2-相关的前端界面设计"><a href="#2-相关的前端界面设计" class="headerlink" title="2.相关的前端界面设计"></a>2.相关的前端界面设计</h4><p><strong>（1）账号/邮箱/手机 +密码登录为主 </strong></p>
 <p>这是最常见的登录方式，适用于普遍的产品。<br>例1：豆瓣<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/E*M78hWi.aT8x1QVlNwpc6wXGEtqZryCd6V2qsg9.nc!/r/dPIAAAAAAAAA" alt="豆瓣登录"></p>
@@ -48,12 +49,14 @@
 <p>例4：Face U<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/dbU1L43WRQ0BlwyIgtJhoIgn6KrSVYz*lgG7f5GNlQQ!/r/dPMAAAAAAAAA" alt="Alt text"></p>
 <h2 id="重点二：注册"><a href="#重点二：注册" class="headerlink" title="重点二：注册"></a>重点二：注册</h2><p>注册有三板斧：<strong>用户名（手机/邮箱），验证码，密码</strong>。</p>
 <p>但也有部分产品会增加「填写用户资料」的流程（如头像、性别、生日等等），以期待可以和用户建立关系。</p>
-<p>若增加「填写用户资料」的流程，也要思考：<br>A.步骤是阻断性的还是可跳过？<br>B.内容哪些是必填，哪些是希望填？</p>
-<p>站在用户体验角度，每增加一步功能或者内容，用户需要去思考，也容易出现流失。<br>在用户登录注册的模块里，着重分析一下注册的交互——分布注册</p>
+<p>若增加「填写用户资料」的流程，也要思考：</p>
+<p>A.步骤是阻断性的还是可跳过？<br>B.内容哪些是必填，哪些是希望填？</p>
+<p>站在用户体验角度，每增加一步功能或者内容，用户需要去思考，也容易出现流失。</p>
+<p>除此之外，在用户登录注册的模块里，着重分析一下注册的交互——分布注册</p>
 <blockquote>
 <p>分步注册（Wizard 向导模式）</p>
 </blockquote>
-<p>在交互层面上，注册是一个很成熟的流程，所以很建议使用到“Wizard（向导模式）”。Wizard模式流行已久，微软在安装软件时，大多数软件都是一步一步引导用户如何安装，将安装任务拆分成几个小任务，一个页面承载一个小任务，用户每次只需完成一个，直至全部完成。（上文也有涉及）</p>
+<p>注册是一个很成熟的流程，所以在交互层面上很建议使用到分步注册，这和“Wizard（向导模式）”有异曲同工之妙。Wizard模式在PC时代是十分流行，微软在安装软件时，大多数软件都是一步一步引导用户如何安装，将安装任务拆分成几个小任务，一个页面承载一个小任务，用户每次只需完成一个，直至全部完成。（上文也有涉及）</p>
 <p>这样做有什么好处：</p>
 <ul>
 <li>通过分解复杂工作流帮助用户更快的掌握内容</li>
@@ -63,4 +66,77 @@
 </ul>
 <p>所以，注册流程，我们也引入这样的思维。拆分注册流程，每一个页面只承担一个作用。</p>
 <p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/kFD1pkSNqFH6smLkpWDRHHowOLQp5vjmTqfv1TkQcLQ!/r/dPIAAAAAAAAA" alt="image"></p>
-<h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title="难点一：多平台账号打通"></a>难点一：多平台账号打通</h2><h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="难点二：第三方授权登录"></a>难点二：第三方授权登录</h2><h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title="难点三：同平台多账号的绑定和解绑"></a>难点三：同平台多账号的绑定和解绑</h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title="难点一：多平台账号打通"></a>难点一：多平台账号打通</h2><p>随着互联网的深入发展，对于公司来说，旗下不仅仅只有一款产品，可能是多个产品并行。因此于某个公司而言，用户账号体系只有一套，而且非常基础，可以面向不同的产品。举个例子，网易系的产品，如考拉海购、网易云音乐等，账户体系是依赖于网易的邮箱。我负责的产品，约约、MOJIKIDS、HOBBYLAB等的账户体系是由手机账号承载的。</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/xKzzatUwxS52NCV2u79EYH*cNZ37g5wIz0BA4csSoxs!/r/dPIAAAAAAAAA" alt="image"></p>
+<p>这种需求是存在的，那我们怎么解决多平台账号打通呢？接下来，会从技术的角度去谈论这个问题，可能说得不一定完全正确，毕竟我是负责产品工作。可这个问题需从服务端入手，从技术角度剖析，询问了程序猿和上网查阅了相关，虽然不是我的强项，可是我对这个解决方法是很好奇。</p>
+<blockquote>
+<p>三个参数</p>
+</blockquote>
+<ul>
+<li>AppID：接入用户系统时，首先分配，用于区别接入的各个APP</li>
+<li>UnionID：用户手机注册时，由用户系统根据手机号创建，在用户系统作为用户唯一身份标识</li>
+<li>AppUserID：用户注册时，由App服务端根据Union或者第三方授权的OpenID创建，在App内作为用户唯一的身份标识</li>
+</ul>
+<blockquote>
+<p>基本流程</p>
+</blockquote>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/obk33lHK.GQCHA6vUUbc7htdPz2ywll3pTJTNozPQRQ!/r/dPMAAAAAAAAA" alt="image"></p>
+<ul>
+<li><p>用户注册，使用手机注册，首先判断手机的正确性和验证手机，若符合要求，检查手机是否已经存在，若存在，就去引导登录；若不存在，服务端就会创建手机UnionID，同时也会反馈给App端，创建AppUserID并关联UnionID</p>
+</li>
+<li><p>用户登录，使用手机密码登录或验证码登录，如注册时检查手机，若手机账号是新增的，流程和注册一致；若手机账号已存在，服务端查询对应的UnionID，再返回APP端，查看UnionID是否在该APP存在过，若是，就查询到AppUserID并成功登录；若否，就创建AppUserID，并且登录。</p>
+</li>
+</ul>
+<p>这是一个普遍的做法，第一，保证UnionID的唯一性，确立用户账号体系；第二，可以让不同App独立，虽然大家有相同的UnionID，可是不同APP有相关的用户信息。</p>
+<blockquote>
+<p>基本原则</p>
+</blockquote>
+<p>根据以上的流程图，我们可以获得以下的基本原则：</p>
+<ul>
+<li>当手机号作为唯一注册途径，用户每次手机注册时，都会在服务端新建一个UnionID，然后返回对应的APP（使用AppID跟踪）创建相关的AppUserID</li>
+<li>一个UnionID可对应N个AppUserID</li>
+<li>第三方授权OpenID，只会存在APP里，即创建AppUserID，并没有创建UnionID</li>
+</ul>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/h9gc4hrAHQ*WP.RWcpIvAGBvYskwkwLxFVMTteGRZsM!/r/dPMAAAAAAAAA" alt="image"></p>
+<p>工作心得：<br>这样流程，是现在总结比较恰当的账户体系，可兼容多平台。但在自己的负责项目，并不是这样流程，区别的地方是，第三方授权的OpenID也可以创建UnionID，这里好处可以快速增加用户体系的用户数量，可是解决同平台多账号问题时，因为这样机制导致绑定和解绑环节很多坑，会非常折腾。若没有存在历史原因，建议一开始用户体系需思考长远一点，如兼容多平台。</p>
+<blockquote>
+<p>问题解答</p>
+</blockquote>
+<ul>
+<li><p>多平台的时候，用户资料等用户信息是如何管理？</p>
+<ul>
+<li><p>答：首先归纳一下现在主流的用户系统服务端设计：</p>
+<ul>
+<li>app级的用户系统，根据手机号邮箱注册或第三方授权创建用户身份，用户的身份信息、账号绑定、个人资料都保存在app服务端也只对单一app有效；普遍中小app都是采用的此种。</li>
+<li>公司级用户系统，根据手机号邮箱注册创建用户身份，用户的身份信息、账号绑定、个人资料都保存在统一的公司用户系统服务端，对接入的app有效，app端有读取修改权限；</li>
+<li><p>平台级用户系统，根据手机号邮箱注册创建用户身份，用户的身份信息、账号绑定、个人资料都保存在统一的公司用户系统服务端，选择极少信息提供公开接口，接入的app只有读取权限；例如qq微博微信等第三方授权。</p>
+<p>我工作的情况，是第二种为主，公司级用户系统。这里举两个例子：网易（网易云音乐，考拉海购、网易严选）和百度（百度贴吧、百度地图）。</p>
+</li>
+<li><p>网易公司的用户系统是网易邮箱去承载，但是承担功能仅有一个用户身份即UnionID，用户资料、账号、第三方登录等都是由APP自己去实现和修改</p>
+</li>
+<li>百度公司的用户系统是百度账号去承载，不仅有UnionID，还包括用户资料、第三方登录、账号等等都是保存在用户体系中，App端都有修改权限用户系统资料</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>那我们看得出，用户资料管理方式有两种，一种是储存在App端，一种是储存在用户体系。网易是储存在App端的，而百度储存在用户体系。究其原因是：
+
+* 1.百度偏向工具，所以对于用户资料并不是很高要求，只需有昵称、头像等基础元素即可，资料保存在用户体系，app端直接接入即可
+* 2.网易偏向个性化，不同产品有不同的用户体系需求，所以将资料存放在App端，可以满足多样性，又互不打扰
+
+我负责的产品，则是参考了百度的做法，将用户资料存在用户体系中，这样在我们不同的产品App上可直接修改相关昵称、头像等。为啥会有这种初衷？因为我们的电商产品，用户关心的是买买买，而对个性化要求并不高。我们不希望让用户花时间放在用户账号上。
+</code></pre><ul>
+<li>为什么不用手机作为唯一识别方式？<ul>
+<li>答：不使用。站在用户的安全性，手机是一个可变量，用户可能丢失手机无法找回，更换手机，甚至激活旧手机号码造成账号资料泄露。<pre><code>手机号是我们保证账号安全性的一手段，常用方法有以下：
+</code></pre><ul>
+<li>绑定/解绑手机</li>
+<li>设置安全问题</li>
+<li>app用户行为验证</li>
+<li>账号申诉</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="难点二：第三方授权登录"></a>难点二：第三方授权登录</h2><h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title="难点三：同平台多账号的绑定和解绑"></a>难点三：同平台多账号的绑定和解绑</h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
