@@ -26,8 +26,9 @@
 </blockquote>
 <p>现在每家公司都不会只有一款产品，而是会以某个成功产品为核心，延伸更多其他类型的产品。因此，每个产品都会有其对应的用户体系，但是用户账号系统，基本都是唯一的，它需要满足不同的产品。</p>
 <p>所以，接下来，需要总结如何处理以上重点和难点。</p>
-<p><a href="# 重点一：登录">重点一：登录</a><br><a href="# 重点二：注册&#39;">重点二：注册</a><br><a href="# 难点一：多平台账号打通">难点一：多平台账号打通</a><br><a href="# 难点二：第三方授权登录">难点二：第三方授权登录</a><br><a href="# 难点三：同平台多账号的绑定和解绑">难点三：同平台多账号的绑定和解绑</a></p>
-<h2 id="重点一：登录"><a href="#重点一：登录" class="headerlink" title="重点一：登录"></a>重点一：登录</h2><h4 id="1-登录方式的介绍"><a href="#1-登录方式的介绍" class="headerlink" title="1.登录方式的介绍"></a>1.登录方式的介绍</h4><p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/2Cb15Q7OQY0VAXqdji*PR*YWx.1Y2yf0L7vkQhBpeoQ!/r/dPMAAAAAAAAA" alt="登录方式"></p>
+<p><a href="#jump1">重点一：登录</a><br><a href="#jump2">重点二：注册</a><br><a href="#jump3">难点一：多平台账号打通</a><br><a href="#jump4">难点二：第三方授权登录</a><br><a href="#jump5">难点三：同平台多账号的绑定和解绑</a></p>
+<p>##<span id="jump1">重点一：登录 </span></p>
+<h4 id="1-登录方式的介绍"><a href="#1-登录方式的介绍" class="headerlink" title="1.登录方式的介绍"></a>1.登录方式的介绍</h4><p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/2Cb15Q7OQY0VAXqdji*PR*YWx.1Y2yf0L7vkQhBpeoQ!/r/dPMAAAAAAAAA" alt="登录方式"></p>
 <h4 id="2-相关的前端界面设计"><a href="#2-相关的前端界面设计" class="headerlink" title="2.相关的前端界面设计"></a>2.相关的前端界面设计</h4><p><strong>（1）账号/邮箱/手机 +密码登录为主 </strong></p>
 <p>这是最常见的登录方式，适用于普遍的产品。<br>例1：豆瓣<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/E*M78hWi.aT8x1QVlNwpc6wXGEtqZryCd6V2qsg9.nc!/r/dPIAAAAAAAAA" alt="豆瓣登录"></p>
 <p><strong>（2）手机+验证码登录为主 </strong></p>
@@ -47,7 +48,8 @@
 <p>第三方授权登录，于用户而言，是方便至极，无需填写任何信息，只需要授权登录即可。可是于产品而言，第三方登录只公开OpenID，因此很多用户数据，仍然在第三方，不利于后续工作展开，因此，很多产品都会登录后引导用户绑定手机或者其他信息。</p>
 <p>然而，在产品的初期，也可不妨全面植入第三方授权，因为用户系统需时搭建，初期的产品步伐较轻，可将核心放进产品核心功能，使用第三方授权登录方式，一来于用户而言，注册登录成本几乎没有，低门槛让用户快速体验产品；二来可以验证产品的市场接受度。</p>
 <p>例4：Face U<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/dbU1L43WRQ0BlwyIgtJhoIgn6KrSVYz*lgG7f5GNlQQ!/r/dPMAAAAAAAAA" alt="Alt text"></p>
-<h2 id="重点二：注册"><a href="#重点二：注册" class="headerlink" title="重点二：注册"></a>重点二：注册</h2><p>注册有三板斧：<strong>用户名（手机/邮箱），验证码，密码</strong>。</p>
+<p>##<span id="jump2"> 重点二：注册 </span></p>
+<p>注册有三板斧：<strong>用户名（手机/邮箱），验证码，密码</strong>。</p>
 <p>但也有部分产品会增加「填写用户资料」的流程（如头像、性别、生日等等），以期待可以和用户建立关系。</p>
 <p>若增加「填写用户资料」的流程，也要思考：</p>
 <p>A.步骤是阻断性的还是可跳过？<br>B.内容哪些是必填，哪些是希望填？</p>
@@ -66,7 +68,7 @@
 </ul>
 <p>所以，注册流程，我们也引入这样的思维。拆分注册流程，每一个页面只承担一个作用。</p>
 <p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/kFD1pkSNqFH6smLkpWDRHHowOLQp5vjmTqfv1TkQcLQ!/r/dPIAAAAAAAAA" alt="image"></p>
-<h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title="难点一：多平台账号打通"></a>难点一：多平台账号打通</h2><p>随着互联网的深入发展，对于公司来说，旗下不仅仅只有一款产品，可能是多个产品并行。因此于某个公司而言，用户账号体系只有一套，而且非常基础，可以面向不同的产品。举个例子，网易系的产品，如考拉海购、网易云音乐等，账户体系是依赖于网易的邮箱。我负责的产品，约约、MOJIKIDS、HOBBYLAB等的账户体系是由手机账号承载的。</p>
+<h2 id="难点一：多平台账号打通"><a href="#难点一：多平台账号打通" class="headerlink" title=" 难点一：多平台账号打通 "></a><span id="jump3"> 难点一：多平台账号打通 </span></h2><p>随着互联网的深入发展，对于公司来说，旗下不仅仅只有一款产品，可能是多个产品并行。因此于某个公司而言，用户账号体系只有一套，而且非常基础，可以面向不同的产品。举个例子，网易系的产品，如考拉海购、网易云音乐等，账户体系是依赖于网易的邮箱。我负责的产品，约约、MOJIKIDS、HOBBYLAB等的账户体系是由手机账号承载的。</p>
 <p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/xKzzatUwxS52NCV2u79EYH*cNZ37g5wIz0BA4csSoxs!/r/dPIAAAAAAAAA" alt="image"></p>
 <p>这种需求是存在的，那我们怎么解决多平台账号打通呢？接下来，会从技术的角度去谈论这个问题，可能说得不一定完全正确，毕竟我是负责产品工作。可这个问题需从服务端入手，从技术角度剖析，询问了程序猿和上网查阅了相关，虽然不是我的强项，可是我对这个解决方法是很好奇。</p>
 <blockquote>
@@ -139,4 +141,5 @@
 </ul>
 </li>
 </ul>
-<h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="难点二：第三方授权登录"></a>难点二：第三方授权登录</h2><h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title="难点三：同平台多账号的绑定和解绑"></a>难点三：同平台多账号的绑定和解绑</h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<p>##<span id="jump4">  难点二：第三方授权登录 </span></p>
+<h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title=" 难点三：同平台多账号的绑定和解绑 "></a><span id="jump5"> 难点三：同平台多账号的绑定和解绑 </span></h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
