@@ -137,5 +137,66 @@
 <li>app用户行为验证</li>
 <li>账号申诉</li>
 </ul>
-<p>##<span id="jump4">  难点二：第三方授权登录 </span></p>
-<h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title=" 难点三：同平台多账号的绑定和解绑 "></a><span id="jump5"> 难点三：同平台多账号的绑定和解绑 </span></h2></div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<h2 id="难点二：第三方授权登录"><a href="#难点二：第三方授权登录" class="headerlink" title="  难点二：第三方授权登录 "></a><span id="jump4">  难点二：第三方授权登录 </span></h2><p>难点1提出的基本原则，也写道，第三方授权的用户不是用户系统的用户，仅是单一App的用户。因此就这个原则，第三方授权登录流程如下：<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/F5rQ4EqC66SNWJWg..8dHjkj76addL4mf26gdgEMsmU!/r/dD8BAAAAAAAA" alt="enter image description here"></p>
+<ul>
+<li>第三方授权注册登录<ul>
+<li>调取第三方sdk，查询此openid是否已有appuserid；</li>
+<li>若是，登陆；若否，创建appuserid并将基本资料存入app服务端；</li>
+</ul>
+</li>
+</ul>
+<p>我负责的产品——约约，还有尚早版本的京东，并非按照上图流程。<br>区别地方是，第三方授权的OpenID是直接进入服务端查找是否有UnionID，再由UnionID创建APPUserID</p>
+<p>这里会有问题的，第三方授权OpenID和手机号在用户体系中是同一个层级，可创建UnionID。若手机号和第三方授权绑定在一起，就会出现两个UnionID，发生冲突。所以不建议这样的方式实现用户账号体系。</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/HoxkgornABHrNAD37xGbzST1z8PSntjdESm6zYinxa0!/r/dPMAAAAAAAAA" alt="enter image description here"></p>
+<h2 id="难点三：同平台多账号的绑定和解绑"><a href="#难点三：同平台多账号的绑定和解绑" class="headerlink" title=" 难点三：同平台多账号的绑定和解绑 "></a><span id="jump5"> 难点三：同平台多账号的绑定和解绑 </span></h2><p>（一）账号绑定<br>账号绑定主要分为：绑定手机号和绑定第三方授权账号。</p>
+<p>账号绑定是为了避免用户忘记其登录方式，有利于用户操作，也有利于产品用户的信息留存。<br><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/K5wkpl*W.twx2n3bD8h0xL3tXRZIs0f8KG7TEMJtohA!/r/dLMAAAAAAAAA" alt="enter image description here"></p>
+<p>绑定手机号</p>
+<ul>
+<li>Step 1：用户输入手机号并获得验证码，客户端进行基本手机判断，App服务端发送验证码给用户</li>
+<li>Step 2：用户系统服务端验证手机是否已经存在对应的UnionID<ul>
+<li>若是，提示已绑定此手机号，需更换手机号</li>
+<li>若否，按照手机号注册流程，用户系统创建UnionID，将UnionID传给App并关联当前登录的AppUserID</li>
+</ul>
+</li>
+</ul>
+<p>绑定第三方授权</p>
+<ul>
+<li>授权后，查询App服务端是否存在AppUserID<ul>
+<li>若是，提示此号已绑定，建议先解绑</li>
+<li>若否，将OpenID绑定到登录的AppUserID中，绑定成功</li>
+</ul>
+</li>
+</ul>
+<p>我负责的产品，并不是这样实现绑定，上文提到，由于历史原因，手机号和OpenID是同一个层级，都有可能生成UnionID，那出现这种情况，如何解决？我提出以下的解决方案。</p>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/ON2xOc0cEZ.DANHLulSYWrmMxLFRymX*qUR8Rob3Y8M!/r/dPIAAAAAAAAA" alt="enter image description here"></p>
+<blockquote>
+<p>实际工作中，由于第三方授权登录，对于产品的用户资料的收集影响略大，所以通常第三方授权登录之后，就需要立即绑定手机，不允许用户跳过。</p>
+</blockquote>
+<p>（二）账号解绑</p>
+<p>（以下内容摘自《用户系统(下)第三方授权、账号绑定及解绑》）</p>
+<p>账号解绑也只是针对手机号和第三方授权。</p>
+<ul>
+<li>手机号：只允许更换手机，不能解除绑定<ul>
+<li>Step1：原手机号+验证码，app服务端验证是否为真，为真发送验证码；</li>
+<li>Step2：新手机号+验证码+密码，app服务端验证手机号+验证码是否为真，为真进行step3</li>
+<li>Step3：用户系统服务验证此手机号是否已存在unionid；</li>
+<li>若是，提示更绑失败</li>
+<li>若否，将新手机号替换原手机号，关联原手机号unionid，appuserid；并将原手机号从用户系统中删除；</li>
+</ul>
+</li>
+</ul>
+<p><code>我的工作心得：在现实工作中，过程并没有如此繁琐，实践中是直接去掉Step2，首先验证旧手机，然后再验证新手机，两者通过即可更换手机。</code></p>
+<ul>
+<li>解绑第三方授权<ul>
+<li>Step1：当前第三方授权是否已经绑定手机号，若是，成功解绑；若否进行step2</li>
+<li>Step2：当前第三方授权是否绑定其他第三方授权登陆，若是进行step3，若否提示无法解绑，首先请绑定手机号；</li>
+<li>Step3：当前第三方授权是否为最早一个绑定（即注册账号）；</li>
+<li>若是，调取第三方授权登陆页面，用户重新登陆要解绑账号+密码（需要确认是否能抹除用户登录信息要求输入账号密码），登陆成功则解绑成功；</li>
+<li>ps：这里被开发同事验证不能抹去登录信息，因为我们只有调取接口的权限。但是当时之所以想要这么设计，是为了账号安全，可以试想一个场景，我把你的账号绑定到我的微信／微博等，然后接触你的账号，相当于这个账号就归我了。－－事实证明现在的权限没办法解决这个问题。</li>
+<li>若否，解绑成功。</li>
+</ul>
+</li>
+</ul>
+<p><code>我的工作心得：第三方授权解绑Step1就要检测是否绑定手机，因为没有绑定手机，会导致后续解绑流程略偏复杂，用户会有疑惑。所以，更推崇当初第三方授权登录，就必须引导用户绑定手机。这样才可以维护用户账号信息和简化后续的登录，也简化后续出现意外时，让用户快速处理问题，如解绑问题</code></p>
+<p><img src="http://r.photo.store.qq.com/psb?/V10AHsyH2SX9Ns/J4RY5rpYdlvbzgwwqenmOgH3JMcsONXi6jtDdI*xglM!/r/dPMAAAAAAAAA" alt="enter image description here"></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/10/01/ProductDesign-Flow/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="http://yoursite.com">Cwaiting</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
